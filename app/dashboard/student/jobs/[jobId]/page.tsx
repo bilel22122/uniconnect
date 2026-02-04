@@ -32,11 +32,11 @@ type JobDetails = {
     company_website?: string;
 
     company: {
-        full_name: string;
-        company_name: string;
-        photo_url: string;
+        id: string;
+        name: string;
+        logo_url: string;
         email: string;
-    }
+    } | null;
 };
 
 export default function StudentJobDetailsPage() {
@@ -59,7 +59,7 @@ export default function StudentJobDetailsPage() {
                 // 1. Fetch Job + Company
                 const { data: jobData, error: jobError } = await supabase
                     .from('jobs')
-                    .select('*, company:profiles!company_id(full_name, company_name, photo_url, email)')
+                    .select('*, company:profiles!company_id(id, name:company_name, logo_url:photo_url, email)')
                     .eq('id', jobId)
                     .single();
 
@@ -137,7 +137,7 @@ export default function StudentJobDetailsPage() {
     }
 
     // Display Logic Helpers
-    const companyName = job.company_display_name || job.company?.company_name || 'Confidential Company';
+    const companyName = job.company_display_name || job.company?.name || 'Confidential Company';
     const companyBio = job.company_overview || 'No company description provided.';
     const website = job.company_website;
 
@@ -159,8 +159,8 @@ export default function StudentJobDetailsPage() {
                         <div className="flex-1">
                             {/* Company Logo/Avatar could go here if we had one separate from user profile, using profile photo for now */}
                             <div className="flex items-center gap-4 mb-4">
-                                {job.company?.photo_url ? (
-                                    <img src={job.company.photo_url} alt={companyName} className="w-12 h-12 rounded-lg object-cover shadow-sm bg-white" />
+                                {job.company?.logo_url ? (
+                                    <img src={job.company.logo_url} alt={companyName} className="w-12 h-12 rounded-lg object-cover shadow-sm bg-white" />
                                 ) : (
                                     <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
                                         <Building2 className="w-6 h-6" />
@@ -168,8 +168,8 @@ export default function StudentJobDetailsPage() {
                                 )}
                                 <div>
                                     <h2 className="text-lg font-semibold text-slate-700">
-                                        {job.company_id ? (
-                                            <Link href={`/dashboard/student/companies/${job.company_id}`} className="hover:text-blue-600 hover:underline transition-colors">
+                                        {job.company?.id ? (
+                                            <Link href={`/dashboard/student/companies/${job.company.id}`} className="hover:text-blue-600 hover:underline transition-colors">
                                                 {companyName}
                                             </Link>
                                         ) : (
@@ -351,10 +351,10 @@ export default function StudentJobDetailsPage() {
                             )}
 
                             {/* Company Profile Link */}
-                            {job.company_id && (
+                            {job.company?.id && (
                                 <div className="pt-4 mt-4 border-t border-slate-100">
                                     <Link
-                                        href={`/dashboard/student/companies/${job.company_id}`}
+                                        href={`/dashboard/student/companies/${job.company.id}`}
                                         className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium hover:bg-slate-200 transition-colors"
                                     >
                                         <Building2 className="w-4 h-4" />
