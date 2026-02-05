@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { createClient } from '@/utils/supabase/client';
 import {
     AlertCircle, CheckCircle, XCircle, User, Briefcase,
-    School, ExternalLink, ThumbsUp, ThumbsDown, Loader2, Eye
+    School, ExternalLink, ThumbsUp, ThumbsDown, Loader2, Eye, MessageSquare
 } from 'lucide-react';
 
 type Application = {
@@ -29,6 +30,7 @@ type Application = {
 
 export default function CompanyCandidatesPage() {
     const supabase = createClient();
+    const router = useRouter();
     const [candidates, setCandidates] = useState<Application[]>([]);
     const [loading, setLoading] = useState(true);
     const [updatingId, setUpdatingId] = useState<string | null>(null);
@@ -136,6 +138,53 @@ export default function CompanyCandidatesPage() {
         }
     };
 
+    const handleMessage = async (studentId: string) => {
+        try {
+            const { data: { user } } = await supabase.auth.getUser();
+            if (!user) return;
+
+            // Check if conversation exists
+            const { data: existingConvo, error: fetchError } = await supabase
+                .from('conversations')
+                .select('id')
+                .eq('company_id', user.id)
+                .eq('student_id', studentId)
+                .maybeSingle();
+
+            if (fetchError) {
+                console.error("Error checking conversation:", fetchError);
+                return;
+            }
+
+            let conversationId = existingConvo?.id;
+
+            if (!conversationId) {
+                // Create new conversation
+                const { data: newConvo, error: createError } = await supabase
+                    .from('conversations')
+                    .insert({
+                        company_id: user.id,
+                        student_id: studentId
+                    })
+                    .select()
+                    .single();
+
+                if (createError) {
+                    console.error("Error creating conversation:", createError);
+                    alert("Failed to start conversation.");
+                    return;
+                }
+                conversationId = newConvo.id;
+            }
+
+            router.push(`/dashboard/company/messages/${conversationId}`);
+
+        } catch (err) {
+            console.error("Error in handleMessage:", err);
+        }
+    };
+
+
     if (loading) return (
         <div className="flex justify-center items-center h-96">
             <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
@@ -226,10 +275,19 @@ export default function CompanyCandidatesPage() {
                                         </Link>
 
                                         {app.status === 'Accepted' ? (
-                                            <div className="flex-1 md:flex-none flex items-center gap-2 text-emerald-600 bg-emerald-50 px-4 py-2 rounded-lg font-bold justify-center border border-emerald-100">
-                                                <CheckCircle className="w-5 h-5" />
-                                                Accepted
-                                            </div>
+                                            <>
+                                                <div className="flex-1 md:flex-none flex items-center gap-2 text-emerald-600 bg-emerald-50 px-4 py-2 rounded-lg font-bold justify-center border border-emerald-100">
+                                                    <CheckCircle className="w-5 h-5" />
+                                                    Accepted
+                                                </div>
+                                                <button
+                                                    onClick={() => handleMessage(app.student.id)}
+                                                    className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-blue-200 text-blue-600 font-bold hover:bg-blue-50 transition-colors"
+                                                >
+                                                    <MessageSquare className="w-5 h-5" />
+                                                    Message
+                                                </button>
+                                            </>
                                         ) : app.status === 'Rejected' ? (
                                             <div className="flex-1 md:flex-none flex items-center gap-2 text-red-600 bg-red-50 px-4 py-2 rounded-lg font-bold justify-center border border-red-100">
                                                 <XCircle className="w-5 h-5" />

@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { createClient } from '@/utils/supabase/client';
@@ -14,8 +15,17 @@ import {
     List,
     Search,
     GraduationCap,
-    LogOut
+    LogOut,
+    MessageSquare
 } from 'lucide-react';
+
+interface NavLink {
+    name: string;
+    href: string;
+    icon: any;
+    hasBadge?: boolean;
+    isMessaging?: boolean;
+}
 
 interface TopNavProps {
     role: 'student' | 'company';
@@ -25,23 +35,58 @@ export default function TopNav({ role }: TopNavProps) {
     const pathname = usePathname();
     const router = useRouter();
     const supabase = createClient();
+    const [hasUnread, setHasUnread] = useState(false);
+
+    useEffect(() => {
+        const checkUnread = async () => {
+            const { data: { user } } = await supabase.auth.getUser();
+            if (!user) return;
+
+            const { count } = await supabase
+                .from('messages')
+                .select('*', { count: 'exact', head: true })
+                .eq('is_read', false)
+                .neq('sender_id', user.id);
+
+            setHasUnread(count !== null && count > 0);
+        };
+
+        checkUnread();
+
+        // Optional: Realtime subscription for unread count could go here
+        const channel = supabase
+            .channel('unread_messages')
+            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, () => {
+                checkUnread();
+            })
+            .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'messages' }, () => {
+                checkUnread();
+            })
+            .subscribe();
+
+        return () => {
+            supabase.removeChannel(channel);
+        };
+    }, [supabase]);
 
     const handleSignOut = async () => {
         await supabase.auth.signOut();
         router.push('/login');
     };
 
-    const studentLinks = [
+    const studentLinks: NavLink[] = [
         { name: 'Home', href: '/dashboard/student', icon: Home },
         { name: 'Companies', href: '/dashboard/student/companies', icon: Building2 },
         { name: 'Jobs', href: '/dashboard/student/jobs', icon: Briefcase },
-        { name: 'Notifications', href: '/dashboard/student/notifications', icon: Bell, hasBadge: true },
+        { name: 'Messaging', href: '/dashboard/student/messages', icon: MessageSquare, isMessaging: true }, // Updated href slightly to likely root
+        // { name: 'Notifications', href: '/dashboard/student/notifications', icon: Bell, hasBadge: true },
         { name: 'Me', href: '/dashboard/student/profile', icon: User },
     ];
 
-    const companyLinks = [
+    const companyLinks: NavLink[] = [
         { name: 'Home', href: '/dashboard/company', icon: Home },
         { name: 'Candidates', href: '/dashboard/company/candidates', icon: Users },
+        { name: 'Messaging', href: '/dashboard/company/messages', icon: MessageSquare, isMessaging: true }, // Updated href slightly to likely root
         { name: 'Post Job', href: '/dashboard/company/listings', icon: PlusCircle },
         { name: 'Me', href: '/dashboard/company/profile', icon: User },
     ];
@@ -83,6 +128,14 @@ export default function TopNav({ role }: TopNavProps) {
 
                             const activeState = link.name === 'Home' ? isHome : isActive;
 
+                            // Determine icon color
+                            let iconColorClass = 'text-gray-500 group-hover:text-black';
+                            if (activeState) {
+                                iconColorClass = 'text-black';
+                            } else if (link.isMessaging && hasUnread) {
+                                iconColorClass = 'text-green-600';
+                            }
+
 
                             return (
                                 <Link
@@ -92,8 +145,7 @@ export default function TopNav({ role }: TopNavProps) {
                                 >
                                     <div className="relative">
                                         <Icon
-                                            className={`h-6 w-6 transition-colors duration-200 ${activeState ? 'text-black' : 'text-gray-500 group-hover:text-black'
-                                                }`}
+                                            className={`h-6 w-6 transition-colors duration-200 ${iconColorClass}`}
                                             strokeWidth={1.5}
                                         />
                                         {link.hasBadge && (
