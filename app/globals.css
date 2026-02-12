@@ -1,13 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a; /* Slate 900 for professional text */
+  --background: #F8FAFC;
+  --foreground: #0B1C38;
+  /* Slate 900 for professional text */
 }
 
 @theme inline {
-  --color-primary: #2563eb; /* Blue 600 */
+  --color-primary: #0B1C38;
+  /* Deep Navy Blue */
+  --color-primary-hover: #162A4D;
+  /* Lighter Navy */
+  --color-secondary: #FBC02D;
+  /* Construction Gold */
+  --color-secondary-hover: #F9A825;
+  /* Darker Gold */
+  --color-background: #F8FAFC;
+  /* Slate 50 */
   --color-primary-foreground: #ffffff;
+  --color-secondary-foreground: #0B1C38;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

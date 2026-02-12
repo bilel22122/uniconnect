@@ -33,7 +33,7 @@ export default function LoginPage() {
                 // Fetch role from profiles
                 const { data: profile, error: profileError } = await supabase
                     .from('profiles')
-                    .select('role')
+                    .select('role, is_admin')
                     .eq('id', data.user.id)
                     .single();
 
@@ -43,6 +43,11 @@ export default function LoginPage() {
                     // For now, let's assume if no profile, we stay or go to a generic page
                     setError("Could not retrieve user profile.");
                 } else if (profile) {
+                    if (profile.is_admin) {
+                        router.push('/admin');
+                        return;
+                    }
+
                     if (profile.role === 'student') {
                         router.push('/dashboard/student');
                     } else if (profile.role === 'company') {

@@ -5,8 +5,9 @@ import Link from 'next/link';
 import { createClient } from '@/utils/supabase/client';
 import {
     User, School, Briefcase, Link as LinkIcon, Edit2,
-    MapPin, Phone, Mail, Globe, Award, Calendar, ExternalLink
+    MapPin, Phone, Mail, Globe, Award, Calendar, ExternalLink,
 } from 'lucide-react';
+import VerifiedBadge from '@/components/ui/VerifiedBadge';
 
 export default function StudentProfileViewPage() {
     const supabase = createClient();
@@ -78,7 +79,10 @@ export default function StudentProfileViewPage() {
 
                         {/* Info */}
                         <div className="flex-1 pb-2">
-                            <h1 className="text-3xl font-bold text-slate-900">{profile.full_name}</h1>
+                            <h1 className="text-3xl font-bold text-slate-900 flex items-center">
+                                {profile.full_name}
+                                {profile.is_verified && <VerifiedBadge size={28} className="ml-2" />}
+                            </h1>
                             <p className="text-lg text-slate-600 font-medium mt-1">
                                 {profile.major || 'Student'}
                                 <span className="text-slate-400 mx-2">•</span>

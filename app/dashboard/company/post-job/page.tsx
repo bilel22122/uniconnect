@@ -7,6 +7,8 @@ import {
     Building2, MapPin, Briefcase, FileText, Globe,
     Calendar, CheckCircle, AlertCircle, Loader2, Save
 } from 'lucide-react';
+import SkillSelector from '@/components/jobs/SkillSelector';
+import LocationSelector from '@/components/ui/LocationSelector';
 
 export default function PostJobPage() {
     const supabase = createClient();
@@ -30,7 +32,7 @@ export default function PostJobPage() {
         responsibilities: '',
 
         // Requirements
-        skills_required: '',
+        // skills_required: '', // Replaced by independent state
         skills_preferred: '',
         education_requirements: '',
 
@@ -43,6 +45,8 @@ export default function PostJobPage() {
         company_overview: '',
         company_website: '',
     });
+
+    const [skills, setSkills] = useState<string[]>([]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -77,7 +81,7 @@ export default function PostJobPage() {
                     role_overview: formData.role_overview,
                     responsibilities: formData.responsibilities,
 
-                    skills_required: formData.skills_required,
+                    skills_required: skills.join(', '), // Convert array to string
                     skills_preferred: formData.skills_preferred,
                     education_requirements: formData.education_requirements,
 
@@ -225,14 +229,12 @@ export default function PostJobPage() {
                             </select>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-slate-700 mb-1">Location Details / Address</label>
-                            <input
-                                type="text"
-                                name="location_address"
+                            <LocationSelector
+                                label="Job Location"
                                 value={formData.location_address}
-                                onChange={handleInputChange}
-                                placeholder={formData.job_location_type === 'Remote' ? 'e.g. Remote (US Only)' : 'e.g. New York, NY or Full Address'}
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                onChange={(val) => setFormData({ ...formData, location_address: val })}
+                                placeholder={formData.job_location_type === 'Remote' ? 'Select if applicable...' : 'Select Wilaya'}
+                                required={formData.job_location_type !== 'Remote'}
                             />
                         </div>
                     </div>
@@ -280,13 +282,9 @@ export default function PostJobPage() {
                     <div className="space-y-6">
                         <div>
                             <label className="block text-sm font-medium text-slate-700 mb-1">Required Skills</label>
-                            <textarea
-                                name="skills_required"
-                                rows={3}
-                                value={formData.skills_required}
-                                onChange={handleInputChange}
-                                placeholder="e.g. React, Node.js, TypeScript (Comma separated or new lines)"
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none resize-y"
+                            <SkillSelector
+                                selectedSkills={skills}
+                                onChange={setSkills}
                             />
                         </div>
                         <div>

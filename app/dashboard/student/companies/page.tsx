@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { createClient } from '@/utils/supabase/client';
 import { Search, MapPin, Building2, ArrowRight, Loader2 } from 'lucide-react';
+import CompanyCard from '@/components/CompanyCard';
 
 type Company = {
     id: string;
@@ -12,6 +13,7 @@ type Company = {
     industry: string | null;
     headquarters: string | null;
     website: string | null;
+    is_verified?: boolean;
 };
 
 export default function StudentCompaniesPage() {
@@ -26,7 +28,7 @@ export default function StudentCompaniesPage() {
             try {
                 const { data, error } = await supabase
                     .from('profiles')
-                    .select('id, company_name, photo_url, industry, headquarters, website')
+                    .select('id, company_name, photo_url, industry, headquarters, website, is_verified')
                     .neq('company_name', null); // Filter out non-company profiles (or properly use role if possible, but name check works for now based on prompt)
 
                 if (error) throw error;
@@ -86,52 +88,7 @@ export default function StudentCompaniesPage() {
             ) : filteredCompanies.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredCompanies.map((company) => (
-                        <div key={company.id} className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all p-6 flex flex-col h-full group">
-
-                            <div className="flex items-start justify-between mb-4">
-                                <div className="w-16 h-16 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center overflow-hidden flex-shrink-0">
-                                    {company.photo_url ? (
-                                        <img src={company.photo_url} alt={company.company_name} className="w-full h-full object-cover" />
-                                    ) : (
-                                        <Building2 className="w-8 h-8 text-slate-300" />
-                                    )}
-                                </div>
-                            </div>
-
-                            <div className="mb-6 flex-grow">
-                                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-1">
-                                    {company.company_name}
-                                </h3>
-                                <div className="flex flex-col gap-2">
-                                    {company.industry ? (
-                                        <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md w-fit">
-                                            {company.industry}
-                                        </span>
-                                    ) : (
-                                        <span className="text-xs font-semibold text-slate-300 bg-slate-50 px-2.5 py-1 rounded-md w-fit">
-                                            No Industry
-                                        </span>
-                                    )}
-                                    {company.headquarters && (
-                                        <div className="flex items-center gap-1.5 text-sm text-slate-500">
-                                            <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                                            {company.headquarters}
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-
-                            <div className="pt-4 border-t border-slate-50 mt-auto">
-                                <Link
-                                    href={`/dashboard/student/companies/${company.id}`}
-                                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 font-semibold rounded-lg hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all text-sm"
-                                >
-                                    Visit Profile
-                                    <ArrowRight className="w-4 h-4" />
-                                </Link>
-                            </div>
-
-                        </div>
+                        <CompanyCard key={company.id} company={company} />
                     ))}
                 </div>
             ) : (

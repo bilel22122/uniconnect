@@ -7,6 +7,7 @@ import {
     ArrowLeft, Mail, Phone, MapPin, Globe, User,
     Briefcase, School, Award, Calendar, ExternalLink
 } from 'lucide-react';
+import VerifiedBadge from '@/components/ui/VerifiedBadge';
 
 type Profile = {
     full_name: string;
@@ -30,6 +31,7 @@ type Profile = {
     sports: string;
     certifications: string;
     mobility: string;
+    is_verified?: boolean;
 };
 
 export default function StudentResumePage() {
@@ -106,7 +108,10 @@ export default function StudentResumePage() {
                     )}
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                    <h1 className="text-3xl font-bold text-slate-900">{profile.full_name}</h1>
+                    <h1 className="text-3xl font-bold text-slate-900 flex items-center justify-center md:justify-start">
+                        {profile.full_name}
+                        {profile.is_verified && <VerifiedBadge size={24} className="ml-2" />}
+                    </h1>
                     <p className="text-lg text-slate-500 mt-1 font-medium">
                         {profile.major ? `${profile.major} Student` : 'Student'}
                         {profile.university && ` at ${profile.university}`}

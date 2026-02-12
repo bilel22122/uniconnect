@@ -8,6 +8,7 @@ import {
     AlertCircle, CheckCircle, XCircle, User, Briefcase,
     School, ExternalLink, ThumbsUp, ThumbsDown, Loader2, Eye, MessageSquare
 } from 'lucide-react';
+import VerifiedBadge from '@/components/ui/VerifiedBadge';
 
 type Application = {
     id: string;
@@ -25,6 +26,7 @@ type Application = {
         major: string | null;
         skills: string | null;
         portfolio_url: string | null;
+        is_verified?: boolean;
     };
 };
 
@@ -65,7 +67,8 @@ export default function CompanyCandidatesPage() {
                 university, 
                 major,
                 skills,
-                portfolio_url
+                portfolio_url,
+                is_verified
               )
             `)
                         .in('job_id', jobIds)
@@ -219,7 +222,10 @@ export default function CompanyCandidatesPage() {
                                     )}
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-slate-900">{app.student.full_name}</h3>
+                                    <h3 className="text-lg font-bold text-slate-900 flex items-center">
+                                        {app.student.full_name}
+                                        {app.student.is_verified && <VerifiedBadge size={20} className="ml-1.5" />}
+                                    </h3>
                                     <div className="text-slate-600 font-medium mb-1">
                                         Applied for <span className="text-blue-600">{app.job?.title}</span>
                                     </div>

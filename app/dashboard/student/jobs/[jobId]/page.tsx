@@ -8,6 +8,7 @@ import {
     Building2, MapPin, Briefcase, DollarSign, Calendar,
     CheckCircle, Globe, Mail, ArrowLeft, Send, Loader2, Share2
 } from 'lucide-react';
+import VerifiedBadge from '@/components/ui/VerifiedBadge';
 
 type JobDetails = {
     id: string;
@@ -36,6 +37,7 @@ type JobDetails = {
         name: string;
         logo_url: string;
         email: string;
+        is_verified?: boolean;
     } | null;
 };
 
@@ -59,7 +61,7 @@ export default function StudentJobDetailsPage() {
                 // 1. Fetch Job + Company
                 const { data: jobData, error: jobError } = await supabase
                     .from('jobs')
-                    .select('*, company:profiles!company_id(id, name:company_name, logo_url:photo_url, email)')
+                    .select('*, company:profiles!company_id(id, name:company_name, logo_url:photo_url, email, is_verified)')
                     .eq('id', jobId)
                     .single();
 
@@ -167,7 +169,7 @@ export default function StudentJobDetailsPage() {
                                     </div>
                                 )}
                                 <div>
-                                    <h2 className="text-lg font-semibold text-slate-700">
+                                    <h2 className="text-lg font-semibold text-slate-700 flex items-center">
                                         {job.company?.id ? (
                                             <Link href={`/dashboard/student/companies/${job.company.id}`} className="hover:text-blue-600 hover:underline transition-colors">
                                                 {companyName}
@@ -175,6 +177,7 @@ export default function StudentJobDetailsPage() {
                                         ) : (
                                             companyName
                                         )}
+                                        {job.company?.is_verified && <VerifiedBadge size={18} className="ml-1.5" />}
                                     </h2>
                                     {job.department && <span className="text-sm text-slate-500">{job.department}</span>}
                                 </div>

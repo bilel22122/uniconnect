@@ -8,6 +8,7 @@ import {
   Mail, Edit, Loader2, ExternalLink,
   Linkedin, Twitter, Phone, Rocket, History, Briefcase, UserCircle, Share2
 } from 'lucide-react';
+import VerifiedBadge from '@/components/ui/VerifiedBadge';
 
 type CompanyProfile = {
   // Brand Identity
@@ -36,6 +37,7 @@ type CompanyProfile = {
   public_email: string;
   linkedin_url: string;
   twitter_url: string;
+  is_verified?: boolean;
 };
 
 export default function CompanyProfileViewPage() {
@@ -56,7 +58,9 @@ export default function CompanyProfileViewPage() {
             bio, history_milestones, markets_served,
             products_services,
             leadership_info,
-            headquarters, contact_phone, public_email, linkedin_url, twitter_url
+            leadership_info,
+            headquarters, contact_phone, public_email, linkedin_url, twitter_url,
+            is_verified
           `)
           .eq('id', user.id)
           .single();
@@ -120,7 +124,10 @@ export default function CompanyProfileViewPage() {
 
             {/* Header Info */}
             <div className="flex-1 text-center md:text-left pt-2 md:pt-0 pb-2">
-              <h1 className="text-3xl font-bold text-slate-900">{profile.company_name || 'Your Company Name'}</h1>
+              <h1 className="text-3xl font-bold text-slate-900 flex items-center justify-center md:justify-start">
+                {profile.company_name || 'Your Company Name'}
+                {profile.is_verified && <VerifiedBadge size={28} className="ml-2" />}
+              </h1>
               {profile.tagline && (
                 <p className="text-lg text-slate-600 mt-1 font-medium italic">"{profile.tagline}"</p>
               )}
