@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UniConnect",
+  title: "Apprenticeship",
   description: "Connect with Top University Talent",
 };
 

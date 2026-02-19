@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { GraduationCap, Github } from 'lucide-react';
@@ -66,18 +67,24 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4 py-12 sm:px-6 lg:px-8">
+        <div className="min-h-screen flex items-center justify-center bg-[#0B1C38] px-4 py-12 sm:px-6 lg:px-8">
             <div className="w-full max-w-md space-y-8">
                 {/* Header */}
                 <div className="text-center">
                     <Link href="/" className="inline-flex items-center gap-2 mb-6">
-                        <GraduationCap className="h-10 w-10 text-blue-600" />
-                        <span className="text-3xl font-bold tracking-tight text-blue-900">UniConnect</span>
+                        <Image
+                            src="/logo1.png"
+                            alt="Apprenticeship Logo"
+                            width={180}
+                            height={60}
+                            className="h-12 w-auto object-contain"
+                            priority
+                        />
                     </Link>
-                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">
+                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-white">
                         Sign in to your account
                     </h2>
-                    <p className="mt-2 text-sm text-slate-600">
+                    <p className="mt-2 text-sm text-slate-300">
                         Welcome back! Please enter your details.
                     </p>
                 </div>
@@ -104,7 +111,7 @@ export default function LoginPage() {
                                     autoComplete="email"
                                     required
                                     placeholder="name@example.com"
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm transition-colors"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2 placeholder-slate-400 focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm transition-colors"
                                 />
                             </div>
                         </div>
@@ -121,7 +128,7 @@ export default function LoginPage() {
                                     autoComplete="current-password"
                                     required
                                     placeholder="••••••••"
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm transition-colors"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2 placeholder-slate-400 focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm transition-colors"
                                 />
                             </div>
                         </div>
@@ -132,7 +139,7 @@ export default function LoginPage() {
                                     id="remember-me"
                                     name="remember-me"
                                     type="checkbox"
-                                    className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                                    className="h-4 w-4 rounded border-slate-300 text-primary focus:ring-secondary"
                                 />
                                 <label htmlFor="remember-me" className="ml-2 block text-sm text-slate-900">
                                     Remember me
@@ -140,7 +147,7 @@ export default function LoginPage() {
                             </div>
 
                             <div className="text-sm">
-                                <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+                                <a href="#" className="font-medium text-primary hover:text-primary/80">
                                     Forgot your password?
                                 </a>
                             </div>
@@ -150,7 +157,7 @@ export default function LoginPage() {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="flex w-full justify-center rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all hover:shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
+                                className="flex w-full justify-center rounded-lg bg-secondary px-4 py-2.5 text-sm font-bold text-primary shadow-sm hover:bg-secondary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-all hover:shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
                             >
                                 {loading ? 'Signing in...' : 'Sign in'}
                             </button>
@@ -204,9 +211,9 @@ export default function LoginPage() {
                     </div>
                 </div>
 
-                <p className="mt-2 text-center text-sm text-slate-600">
+                <p className="mt-2 text-center text-sm text-slate-300">
                     Don't have an account?{' '}
-                    <Link href="/register" className="font-medium text-blue-600 hover:text-blue-500">
+                    <Link href="/register" className="font-medium text-white hover:text-slate-200 hover:underline">
                         Sign up
                     </Link>
                 </p>

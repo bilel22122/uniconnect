@@ -71,7 +71,7 @@ export default function CompanyListingsPage() {
     if (loading) {
         return (
             <div className="flex h-96 items-center justify-center">
-                <div className="h-8 w-8 animate-spin rounded-full border-4 border-blue-600 border-t-transparent"></div>
+                <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
             </div>
         );
     }
@@ -81,12 +81,12 @@ export default function CompanyListingsPage() {
             {/* Header */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
                 <div>
-                    <h1 className="text-2xl font-bold text-slate-900">My Listings</h1>
+                    <h1 className="text-2xl font-bold text-[#0B1C38]">My Listings</h1>
                     <p className="text-slate-500 mt-1">Manage your active job postings and applications.</p>
                 </div>
                 <Link
                     href="/dashboard/company/post-job"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition-all"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#FBBF24] px-4 py-2 text-sm font-bold text-[#0B1C38] shadow-md hover:bg-[#FBBF24]/90 transition-all"
                 >
                     <PlusCircle className="w-4 h-4" />
                     Post a Job
@@ -101,8 +101,8 @@ export default function CompanyListingsPage() {
             ) : jobs.length === 0 ? (
                 // Empty State
                 <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-slate-300">
-                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
-                        <PlusCircle className="h-8 w-8 text-blue-600" />
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#0B1C38]/5">
+                        <PlusCircle className="h-8 w-8 text-[#0B1C38]" />
                     </div>
                     <h3 className="mt-4 text-lg font-semibold text-slate-900">No active listings found</h3>
                     <p className="mt-1 text-slate-500 max-w-sm mx-auto">
@@ -111,7 +111,7 @@ export default function CompanyListingsPage() {
                     <div className="mt-6">
                         <Link
                             href="/dashboard/company/post-job"
-                            className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition-all"
+                            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#FBBF24] px-4 py-2 text-sm font-bold text-[#0B1C38] shadow-md hover:bg-[#FBBF24]/90 transition-all"
                         >
                             Post a Job
                         </Link>
@@ -155,8 +155,8 @@ export default function CompanyListingsPage() {
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${job.job_type === 'Remote' ? 'bg-green-100 text-green-800' :
-                                                    job.job_type === 'Hybrid' ? 'bg-blue-100 text-blue-800' :
-                                                        'bg-slate-100 text-slate-800'
+                                                job.job_type === 'Hybrid' ? 'bg-primary/10 text-primary' :
+                                                    'bg-slate-100 text-slate-800'
                                                 }`}>
                                                 {job.job_type === 'Remote' || job.job_type === 'Hybrid' ? null : <MapPin className="w-3 h-3 mr-1" />}
                                                 {job.job_type}

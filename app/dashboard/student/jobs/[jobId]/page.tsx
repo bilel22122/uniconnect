@@ -125,7 +125,7 @@ export default function StudentJobDetailsPage() {
     if (loading) {
         return (
             <div className="flex h-screen items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
         );
     }
@@ -133,7 +133,7 @@ export default function StudentJobDetailsPage() {
     if (!job) {
         return (
             <div className="p-8 text-center text-slate-500">
-                Job not found. <Link href="/dashboard/student/jobs" className="text-blue-600 underline">Go back</Link>
+                Job not found. <Link href="/dashboard/student/jobs" className="text-primary underline">Go back</Link>
             </div>
         );
     }
@@ -164,14 +164,14 @@ export default function StudentJobDetailsPage() {
                                 {job.company?.logo_url ? (
                                     <img src={job.company.logo_url} alt={companyName} className="w-12 h-12 rounded-lg object-cover shadow-sm bg-white" />
                                 ) : (
-                                    <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center text-primary">
                                         <Building2 className="w-6 h-6" />
                                     </div>
                                 )}
                                 <div>
                                     <h2 className="text-lg font-semibold text-slate-700 flex items-center">
                                         {job.company?.id ? (
-                                            <Link href={`/dashboard/student/companies/${job.company.id}`} className="hover:text-blue-600 hover:underline transition-colors">
+                                            <Link href={`/dashboard/student/companies/${job.company.id}`} className="hover:text-secondary hover:underline transition-colors">
                                                 {companyName}
                                             </Link>
                                         ) : (
@@ -193,7 +193,7 @@ export default function StudentJobDetailsPage() {
                                     </span>
                                 )}
                                 {job.employment_type && (
-                                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">
+                                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-primary/5 text-primary border border-primary/10">
                                         <Briefcase className="w-3.5 h-3.5" />
                                         {job.employment_type}
                                     </span>
@@ -216,7 +216,7 @@ export default function StudentJobDetailsPage() {
                         w-full py-3 px-6 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-md
                         ${hasApplied
                                         ? 'bg-emerald-100 text-emerald-700 cursor-not-allowed border border-emerald-200'
-                                        : 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg'
+                                        : 'bg-primary text-white hover:bg-primary/90 hover:shadow-lg'
                                     }
                     `}
                             >
@@ -286,7 +286,7 @@ export default function StudentJobDetailsPage() {
                                 <div>
                                     <h4 className="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-2">Education</h4>
                                     <div className="flex items-start gap-2 text-slate-600">
-                                        <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
                                         <span>{job.education_requirements}</span>
                                     </div>
                                 </div>
@@ -303,7 +303,7 @@ export default function StudentJobDetailsPage() {
                                 href={website}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center text-blue-600 font-medium hover:underline"
+                                className="inline-flex items-center text-primary font-medium hover:underline"
                             >
                                 <Globe className="w-4 h-4 mr-2" />
                                 Visit Website

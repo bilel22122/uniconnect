@@ -81,7 +81,7 @@ export default function CompanyProfileViewPage() {
   if (loading) {
     return (
       <div className="flex h-96 items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
   }
@@ -94,7 +94,7 @@ export default function CompanyProfileViewPage() {
         <p className="text-slate-500 mt-2 mb-6">It looks like your company profile is missing.</p>
         <Link
           href="/dashboard/company/profile/edit"
-          className="inline-flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors"
         >
           <Edit className="w-4 h-4" />
           Create Profile
@@ -109,7 +109,7 @@ export default function CompanyProfileViewPage() {
       {/* 1. Hero Section */}
       <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mb-8 relative">
         {/* Banner Background (Optional - using a gradient for now) */}
-        <div className="h-32 bg-gradient-to-r from-blue-600 to-indigo-700"></div>
+        <div className="h-32 bg-gradient-to-r from-primary to-slate-900"></div>
 
         <div className="px-8 pb-8">
           <div className="flex flex-col md:flex-row items-end -mt-12 gap-6 relative z-10">
@@ -142,7 +142,7 @@ export default function CompanyProfileViewPage() {
             <div className="flex flex-col items-center md:items-end gap-3 pb-2 w-full md:w-auto">
               <Link
                 href="/dashboard/company/profile/edit"
-                className="flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-sm hover:shadow-md w-full md:w-auto justify-center"
+                className="flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all shadow-sm hover:shadow-md w-full md:w-auto justify-center"
               >
                 <Edit className="w-4 h-4" />
                 Edit Profile
@@ -150,7 +150,7 @@ export default function CompanyProfileViewPage() {
 
               <div className="flex items-center gap-2">
                 {profile.website && (
-                  <a href={profile.website} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors">
+                  <a href={profile.website} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-full transition-colors">
                     <Globe className="w-5 h-5" />
                   </a>
                 )}
@@ -160,7 +160,7 @@ export default function CompanyProfileViewPage() {
                   </a>
                 )}
                 {profile.linkedin_url && (
-                  <a href={profile.linkedin_url} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-colors">
+                  <a href={profile.linkedin_url} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-full transition-colors">
                     <Linkedin className="w-5 h-5" />
                   </a>
                 )}
@@ -179,7 +179,7 @@ export default function CompanyProfileViewPage() {
           {/* At a Glance */}
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
             <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-6 flex items-center gap-2">
-              <Rocket className="w-4 h-4 text-blue-600" />
+              <Rocket className="w-4 h-4 text-secondary" />
               At a Glance
             </h3>
 
@@ -225,8 +225,8 @@ export default function CompanyProfileViewPage() {
 
             <div className="space-y-4">
               {profile.website && (
-                <a href={profile.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors group">
-                  <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                <a href={profile.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-600 hover:text-primary transition-colors group">
+                  <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-primary/5 transition-colors">
                     <Globe className="w-4 h-4" />
                   </div>
                   <span className="text-sm font-medium truncate">Website</span>
@@ -235,8 +235,8 @@ export default function CompanyProfileViewPage() {
               )}
 
               {profile.public_email && (
-                <a href={`mailto:${profile.public_email}`} className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors group">
-                  <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                <a href={`mailto:${profile.public_email}`} className="flex items-center gap-3 text-slate-600 hover:text-primary transition-colors group">
+                  <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-primary/5 transition-colors">
                     <Mail className="w-4 h-4" />
                   </div>
                   <span className="text-sm font-medium truncate">{profile.public_email}</span>
@@ -262,7 +262,7 @@ export default function CompanyProfileViewPage() {
           {/* About Us */}
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-blue-50 rounded-lg text-blue-600">
+              <div className="p-2 bg-primary/5 rounded-lg text-primary">
                 <Building2 className="w-6 h-6" />
               </div>
               <h2 className="text-2xl font-bold text-slate-900">About Us</h2>

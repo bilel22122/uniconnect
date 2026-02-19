@@ -170,7 +170,7 @@ export default function StudentChatPage() {
     if (loading) {
         return (
             <div className="flex h-[calc(100vh-64px)] justify-center items-center">
-                <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                <Loader2 className="w-8 h-8 animate-spin text-primary" />
             </div>
         );
     }
@@ -214,12 +214,12 @@ export default function StudentChatPage() {
                             >
                                 <div
                                     className={`max-w-[70%] px-4 py-2 rounded-2xl text-sm ${isMe
-                                        ? 'bg-blue-600 text-white rounded-br-none'
+                                        ? 'bg-primary text-white rounded-br-none'
                                         : 'bg-white text-gray-800 border border-gray-200 rounded-bl-none shadow-sm'
                                         }`}
                                 >
                                     <p>{msg.content}</p>
-                                    <p className={`text-[10px] mt-1 text-right ${isMe ? 'text-blue-200' : 'text-gray-400'}`}>
+                                    <p className={`text-[10px] mt-1 text-right ${isMe ? 'text-secondary' : 'text-gray-400'}`}>
                                         {new Date(msg.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                     </p>
                                 </div>
@@ -241,12 +241,12 @@ export default function StudentChatPage() {
                         value={newMessage}
                         onChange={(e) => setNewMessage(e.target.value)}
                         placeholder="Type a message..."
-                        className="flex-1 px-4 py-3 bg-gray-50 border-none rounded-full focus:outline-none focus:ring-2 focus:ring-blue-100 text-gray-800 placeholder-gray-400"
+                        className="flex-1 px-4 py-3 bg-gray-50 border-none rounded-full focus:outline-none focus:ring-2 focus:ring-secondary/20 text-gray-800 placeholder-gray-400"
                     />
                     <button
                         type="submit"
                         disabled={!newMessage.trim()}
-                        className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg flex items-center justify-center"
+                        className="p-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg flex items-center justify-center"
                     >
                         <Send className="w-5 h-5 ml-0.5" />
                     </button>

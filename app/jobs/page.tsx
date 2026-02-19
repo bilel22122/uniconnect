@@ -63,7 +63,7 @@ export default function PublicJobsPage() {
 
                 {loading ? (
                     <div className="flex justify-center items-center h-64">
-                        <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                        <Loader2 className="w-8 h-8 animate-spin text-primary" />
                     </div>
                 ) : jobs.length === 0 ? (
                     <div className="text-center py-20 bg-white rounded-xl border border-dashed border-slate-200">

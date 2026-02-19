@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { GraduationCap, Building2, User, Mail, Lock, School, ArrowRight, Briefcase } from 'lucide-react';
@@ -106,18 +107,24 @@ export default function RegisterPage() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4 py-12 sm:px-6 lg:px-8">
+        <div className="min-h-screen flex items-center justify-center bg-[#0B1C38] px-4 py-12 sm:px-6 lg:px-8">
             <div className="w-full max-w-md space-y-8">
                 {/* Header */}
                 <div className="text-center">
                     <Link href="/" className="inline-flex items-center gap-2 mb-6">
-                        <GraduationCap className="h-10 w-10 text-blue-600" />
-                        <span className="text-3xl font-bold tracking-tight text-blue-900">UniConnect</span>
+                        <Image
+                            src="/logo1.png"
+                            alt="Apprenticeship Logo"
+                            width={180}
+                            height={60}
+                            className="h-12 w-auto object-contain"
+                            priority
+                        />
                     </Link>
-                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">
+                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-white">
                         Create your account
                     </h2>
-                    <p className="mt-2 text-sm text-slate-600">
+                    <p className="mt-2 text-sm text-slate-300">
                         Join the network of top talent and leading companies.
                     </p>
                 </div>
@@ -128,8 +135,8 @@ export default function RegisterPage() {
                         type="button"
                         onClick={() => setRole('student')}
                         className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-medium rounded-lg transition-all ${role === 'student'
-                                ? 'bg-blue-600 text-white shadow-sm'
-                                : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'
+                            ? 'bg-primary text-white shadow-sm'
+                            : 'text-slate-500 hover:text-primary hover:bg-slate-50'
                             }`}
                     >
                         <GraduationCap className="w-4 h-4" />
@@ -139,8 +146,8 @@ export default function RegisterPage() {
                         type="button"
                         onClick={() => setRole('company')}
                         className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-medium rounded-lg transition-all ${role === 'company'
-                                ? 'bg-blue-600 text-white shadow-sm'
-                                : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'
+                            ? 'bg-primary text-white shadow-sm'
+                            : 'text-slate-500 hover:text-primary hover:bg-slate-50'
                             }`}
                     >
                         <Building2 className="w-4 h-4" />
@@ -166,7 +173,7 @@ export default function RegisterPage() {
                                             type="text"
                                             value={formData.fullName}
                                             onChange={handleInputChange}
-                                            className={`block w-full pl-10 rounded-lg border ${errors.fullName ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm transition-colors`}
+                                            className={`block w-full pl-10 rounded-lg border ${errors.fullName ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm transition-colors`}
                                             placeholder="John Doe"
                                         />
                                     </div>
@@ -182,7 +189,7 @@ export default function RegisterPage() {
                                             type="text"
                                             value={formData.university}
                                             onChange={handleInputChange}
-                                            className={`block w-full pl-10 rounded-lg border ${errors.university ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm transition-colors`}
+                                            className={`block w-full pl-10 rounded-lg border ${errors.university ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm transition-colors`}
                                             placeholder="Harvard University"
                                         />
                                     </div>
@@ -202,7 +209,7 @@ export default function RegisterPage() {
                                             type="text"
                                             value={formData.companyName}
                                             onChange={handleInputChange}
-                                            className={`block w-full pl-10 rounded-lg border ${errors.companyName ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm transition-colors`}
+                                            className={`block w-full pl-10 rounded-lg border ${errors.companyName ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm transition-colors`}
                                             placeholder="Acme Corp"
                                         />
                                     </div>
@@ -218,7 +225,7 @@ export default function RegisterPage() {
                                             type="text"
                                             value={formData.industry}
                                             onChange={handleInputChange}
-                                            className={`block w-full pl-10 rounded-lg border ${errors.industry ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm transition-colors`}
+                                            className={`block w-full pl-10 rounded-lg border ${errors.industry ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm transition-colors`}
                                             placeholder="e.g. Technology, Finance"
                                         />
                                     </div>
@@ -240,7 +247,7 @@ export default function RegisterPage() {
                                     type="email"
                                     value={formData.email}
                                     onChange={handleInputChange}
-                                    className={`block w-full pl-10 rounded-lg border ${errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm transition-colors`}
+                                    className={`block w-full pl-10 rounded-lg border ${errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm transition-colors`}
                                     placeholder="you@example.com"
                                 />
                             </div>
@@ -258,7 +265,7 @@ export default function RegisterPage() {
                                         type="password"
                                         value={formData.password}
                                         onChange={handleInputChange}
-                                        className={`block w-full pl-10 rounded-lg border ${errors.password ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm transition-colors`}
+                                        className={`block w-full pl-10 rounded-lg border ${errors.password ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm transition-colors`}
                                         placeholder="••••••••"
                                     />
                                 </div>
@@ -274,7 +281,7 @@ export default function RegisterPage() {
                                         type="password"
                                         value={formData.confirmPassword}
                                         onChange={handleInputChange}
-                                        className={`block w-full pl-10 rounded-lg border ${errors.confirmPassword ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm transition-colors`}
+                                        className={`block w-full pl-10 rounded-lg border ${errors.confirmPassword ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'} px-3 py-2 placeholder-slate-400 focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm transition-colors`}
                                         placeholder="••••••••"
                                     />
                                 </div>
@@ -285,7 +292,7 @@ export default function RegisterPage() {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all hover:shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
+                                className="flex w-full items-center justify-center gap-2 rounded-lg bg-secondary px-4 py-2.5 text-sm font-bold text-primary shadow-sm hover:bg-secondary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-all hover:shadow-md disabled:opacity-70 disabled:cursor-not-allowed"
                             >
                                 {loading ? 'Creating Account...' : 'Create Account'}
                                 {!loading && <ArrowRight className="w-4 h-4" />}
@@ -294,9 +301,9 @@ export default function RegisterPage() {
                     </form>
                 </div>
 
-                <p className="mt-2 text-center text-sm text-slate-600">
+                <p className="mt-2 text-center text-sm text-slate-300">
                     Already have an account?{' '}
-                    <Link href="/login" className="font-medium text-blue-600 hover:text-blue-500">
+                    <Link href="/login" className="font-medium text-white hover:text-slate-200 hover:underline">
                         Sign in
                     </Link>
                 </p>

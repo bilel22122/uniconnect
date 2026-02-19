@@ -13,7 +13,7 @@ export default function VerifiedBadge({ className = "", size = 20 }: VerifiedBad
         >
             <BadgeCheck
                 size={size}
-                className="text-blue-500 fill-blue-100"
+                className="text-secondary fill-secondary/10"
                 strokeWidth={1.5}
             />
         </span>

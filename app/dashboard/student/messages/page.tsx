@@ -89,7 +89,7 @@ export default function StudentInboxPage() {
     if (loading) {
         return (
             <div className="flex h-[calc(100vh-64px)] justify-center items-center">
-                <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                <Loader2 className="w-8 h-8 animate-spin text-primary" />
             </div>
         );
     }

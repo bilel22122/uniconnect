@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import {
     LayoutDashboard,
@@ -53,12 +54,18 @@ export default function DashboardSidebar() {
     if (!isStudent && !isCompany) return null; // Or return a default
 
     return (
-        <div className="w-64 h-screen bg-white border-r border-slate-200 flex flex-col fixed left-0 top-0">
+        <div className="w-64 h-screen bg-primary border-r border-white/10 flex flex-col fixed left-0 top-0">
             {/* Header */}
-            <div className="h-16 flex items-center px-6 border-b border-slate-100">
+            <div className="h-20 flex items-center px-6 border-b border-white/10">
                 <Link href="/" className="flex items-center gap-2">
-                    <GraduationCap className="h-6 w-6 text-blue-600" />
-                    <span className="text-xl font-bold text-blue-900">UniConnect</span>
+                    <Image
+                        src="/logo1.png"
+                        alt="Apprenticeship Logo"
+                        width={150}
+                        height={40}
+                        className="h-10 w-auto object-contain"
+                        priority
+                    />
                 </Link>
             </div>
 
@@ -72,11 +79,11 @@ export default function DashboardSidebar() {
                             key={link.name}
                             href={link.href}
                             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${isActive
-                                ? 'bg-blue-50 text-blue-700'
-                                : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                                ? 'bg-secondary text-primary'
+                                : 'text-gray-300 hover:text-white hover:bg-white/10'
                                 }`}
                         >
-                            <Icon className={`w-5 h-5 ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
+                            <Icon className={`w-5 h-5 ${isActive ? 'text-primary' : 'text-gray-400 group-hover:text-white'}`} />
                             {link.name}
                         </Link>
                     );
@@ -84,10 +91,10 @@ export default function DashboardSidebar() {
             </nav>
 
             {/* Footer / Sign Out */}
-            <div className="p-4 border-t border-slate-100">
+            <div className="p-4 border-t border-white/10">
                 <button
                     onClick={handleSignOut}
-                    className="flex w-full items-center gap-3 px-3 py-2.5 text-sm font-medium text-slate-600 rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors"
+                    className="flex w-full items-center gap-3 px-3 py-2.5 text-sm font-medium text-gray-300 rounded-lg hover:bg-red-500/10 hover:text-red-400 transition-colors"
                 >
                     <LogOut className="w-5 h-5" />
                     Sign Out

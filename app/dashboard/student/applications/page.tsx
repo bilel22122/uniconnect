@@ -52,7 +52,7 @@ export default function StudentApplicationsPage() {
     if (loading) {
         return (
             <div className="flex h-96 items-center justify-center">
-                <div className="h-8 w-8 animate-spin rounded-full border-4 border-blue-600 border-t-transparent"></div>
+                <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
             </div>
         );
     }
@@ -66,8 +66,8 @@ export default function StudentApplicationsPage() {
 
             {applications.length === 0 ? (
                 <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-slate-300">
-                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
-                        <FileText className="h-8 w-8 text-blue-600" />
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/5">
+                        <FileText className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="mt-4 text-lg font-semibold text-slate-900">No applications yet</h3>
                     <p className="mt-1 text-slate-500 max-w-sm mx-auto">
@@ -76,7 +76,7 @@ export default function StudentApplicationsPage() {
                     <div className="mt-6">
                         <Link
                             href="/dashboard/student/jobs"
-                            className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition-all"
+                            className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 transition-all"
                         >
                             <Search className="w-4 h-4" />
                             Find Work
@@ -125,8 +125,8 @@ export default function StudentApplicationsPage() {
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${app.status === 'accepted' ? 'bg-green-100 text-green-800' :
-                                                    app.status === 'rejected' ? 'bg-red-100 text-red-800' :
-                                                        'bg-yellow-100 text-yellow-800'
+                                                app.status === 'rejected' ? 'bg-red-100 text-red-800' :
+                                                    'bg-yellow-100 text-yellow-800'
                                                 }`}>
                                                 {app.status}
                                             </span>

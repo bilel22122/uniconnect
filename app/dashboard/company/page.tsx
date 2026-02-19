@@ -120,7 +120,7 @@ export default function CompanyDashboardPage() {
     if (loading) {
         return (
             <div className="flex h-96 items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
         );
     }
@@ -139,12 +139,12 @@ export default function CompanyDashboardPage() {
 
                 {/* Active Jobs Card */}
                 <Link href="/dashboard/company/listings" className="group">
-                    <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-300 hover:shadow-md transition-all">
+                    <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-secondary hover:shadow-md transition-all">
                         <div className="flex items-center justify-between mb-4">
-                            <div className="p-3 bg-blue-50 rounded-xl text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <div className="p-3 bg-primary/5 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                                 <Briefcase className="w-6 h-6" />
                             </div>
-                            <span className="flex items-center text-sm font-semibold text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span className="flex items-center text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                                 View All <ArrowRight className="w-4 h-4 ml-1" />
                             </span>
                         </div>
@@ -192,7 +192,7 @@ export default function CompanyDashboardPage() {
                         </Link>
                     </div>
                     {/* Decorative Circle */}
-                    <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl"></div>
+                    <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl"></div>
                 </div>
 
             </div>
@@ -201,7 +201,7 @@ export default function CompanyDashboardPage() {
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                 <div className="p-6 border-b border-slate-100 flex items-center justify-between">
                     <h2 className="text-lg font-bold text-slate-900">Latest Applications</h2>
-                    <Link href="/dashboard/company/candidates" className="text-sm font-semibold text-blue-600 hover:text-blue-700 hover:underline">
+                    <Link href="/dashboard/company/candidates" className="text-sm font-semibold text-primary hover:text-primary/80 hover:underline">
                         View All Candidates
                     </Link>
                 </div>
@@ -224,7 +224,7 @@ export default function CompanyDashboardPage() {
                                         <div>
                                             <div className="font-bold text-slate-900">{app.student?.full_name || 'Unknown Student'}</div>
                                             <div className="text-sm text-slate-500 flex items-center gap-1">
-                                                Applied for <span className="font-medium text-blue-600">{app.job?.title}</span>
+                                                Applied for <span className="font-medium text-secondary">{app.job?.title}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -238,7 +238,7 @@ export default function CompanyDashboardPage() {
 
                                         <Link
                                             href="/dashboard/company/candidates"
-                                            className="px-4 py-2 rounded-lg border border-slate-200 text-sm font-semibold text-slate-600 hover:bg-white hover:border-blue-200 hover:text-blue-600 hover:shadow-sm transition-all bg-slate-50"
+                                            className="px-4 py-2 rounded-lg border border-slate-200 text-sm font-semibold text-slate-600 hover:bg-white hover:border-secondary hover:text-primary hover:shadow-sm transition-all bg-slate-50"
                                         >
                                             View
                                         </Link>
@@ -248,14 +248,14 @@ export default function CompanyDashboardPage() {
                         </div>
                     ) : (
                         <div className="p-12 text-center text-slate-500 bg-slate-50/50">
-                            <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <Users className="w-8 h-8 text-slate-300" />
+                            <div className="w-16 h-16 bg-[#0B1C38]/5 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <Users className="w-8 h-8 text-[#0B1C38]" />
                             </div>
                             <h3 className="text-lg font-medium text-slate-900">No applications yet</h3>
                             <p className="mt-1 mb-6">Once students apply to your jobs, they'll appear here.</p>
                             <Link
                                 href="/dashboard/company/post-job"
-                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-sm"
+                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FBBF24] text-[#0B1C38] rounded-xl font-bold hover:bg-[#FBBF24]/90 transition-colors shadow-md"
                             >
                                 Post a Job
                             </Link>

@@ -125,7 +125,7 @@ export default function PostJobPage() {
                 {/* Section 1: The Basics */}
                 <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
                     <div className="flex items-center gap-3 mb-6 pb-2 border-b border-slate-100">
-                        <Briefcase className="w-6 h-6 text-blue-600" />
+                        <Briefcase className="w-6 h-6 text-secondary" />
                         <h2 className="text-xl font-bold text-slate-900">The Basics</h2>
                     </div>
 
@@ -139,7 +139,7 @@ export default function PostJobPage() {
                                 onChange={handleInputChange}
                                 required
                                 placeholder="e.g. Junior Frontend Developer"
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
                         <div>
@@ -150,7 +150,7 @@ export default function PostJobPage() {
                                 value={formData.department}
                                 onChange={handleInputChange}
                                 placeholder="e.g. Engineering, Marketing"
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
                         <div>
@@ -159,7 +159,7 @@ export default function PostJobPage() {
                                 name="category"
                                 value={formData.category}
                                 onChange={handleInputChange}
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             >
                                 <option value="Engineering">Engineering</option>
                                 <option value="Design">Design</option>
@@ -175,7 +175,7 @@ export default function PostJobPage() {
                                 name="employment_type"
                                 value={formData.employment_type}
                                 onChange={handleInputChange}
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             >
                                 <option value="Full-time">Full-time</option>
                                 <option value="Part-time">Part-time</option>
@@ -190,7 +190,7 @@ export default function PostJobPage() {
                                 name="application_deadline"
                                 value={formData.application_deadline}
                                 onChange={handleInputChange}
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
 
@@ -202,7 +202,7 @@ export default function PostJobPage() {
                                 value={formData.salary_range}
                                 onChange={handleInputChange}
                                 placeholder="e.g. $50k - $70k or 'Market Rate'"
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
                     </div>
@@ -221,7 +221,7 @@ export default function PostJobPage() {
                                 name="job_location_type"
                                 value={formData.job_location_type}
                                 onChange={handleInputChange}
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             >
                                 <option value="On-site">On-site</option>
                                 <option value="Hybrid">Hybrid</option>
@@ -255,7 +255,7 @@ export default function PostJobPage() {
                                 value={formData.role_overview}
                                 onChange={handleInputChange}
                                 placeholder="Briefly describe what this role entails..."
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none resize-y"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none resize-y"
                             />
                         </div>
                         <div>
@@ -266,7 +266,7 @@ export default function PostJobPage() {
                                 value={formData.responsibilities}
                                 onChange={handleInputChange}
                                 placeholder="• Lead the development of..."
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none resize-y font-mono text-sm"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none resize-y font-mono text-sm"
                             />
                             <p className="mt-1 text-xs text-slate-500">Tip: Use bullet points (• or -) for better readability.</p>
                         </div>
@@ -295,7 +295,7 @@ export default function PostJobPage() {
                                 value={formData.skills_preferred}
                                 onChange={handleInputChange}
                                 placeholder="Nice-to-haves..."
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none resize-y"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none resize-y"
                             />
                         </div>
                         <div>
@@ -306,7 +306,7 @@ export default function PostJobPage() {
                                 value={formData.education_requirements}
                                 onChange={handleInputChange}
                                 placeholder="e.g. Pursuing BS in Computer Science or related field"
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
                     </div>
@@ -328,7 +328,7 @@ export default function PostJobPage() {
                                 value={formData.company_display_name}
                                 onChange={handleInputChange}
                                 placeholder="Override profile name if needed"
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
                         <div>
@@ -339,7 +339,7 @@ export default function PostJobPage() {
                                 value={formData.company_website}
                                 onChange={handleInputChange}
                                 placeholder="https://company.com"
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
                         <div className="md:col-span-2">
@@ -350,7 +350,7 @@ export default function PostJobPage() {
                                 value={formData.company_overview}
                                 onChange={handleInputChange}
                                 placeholder="A short blurb about the company or specific team..."
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none resize-y"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none resize-y"
                             />
                         </div>
                     </div>
@@ -368,7 +368,7 @@ export default function PostJobPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-md hover:shadow-lg disabled:opacity-70"
+                        className="flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-xl font-bold hover:bg-primary/90 transition-all shadow-md hover:shadow-lg disabled:opacity-70"
                     >
                         {loading ? (
                             <>

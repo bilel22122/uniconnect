@@ -94,7 +94,7 @@ export default function StudentCompanyViewPage() {
     if (loading) {
         return (
             <div className="flex h-96 items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
         );
     }
@@ -107,7 +107,7 @@ export default function StudentCompanyViewPage() {
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">Company Not Found</h3>
                 <p className="text-slate-500 mt-2">The company profile you are looking for does not exist.</p>
-                <Link href="/dashboard/student/jobs" className="inline-block mt-6 text-blue-600 hover:underline font-medium">
+                <Link href="/dashboard/student/jobs" className="inline-block mt-6 text-primary hover:underline font-medium">
                     Browse Jobs
                 </Link>
             </div>
@@ -149,7 +149,7 @@ export default function StudentCompanyViewPage() {
                         {/* Social Links */}
                         <div className="flex items-center gap-2 pb-2 w-full md:w-auto justify-center md:justify-end">
                             {profile.website && (
-                                <a href={profile.website} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors">
+                                <a href={profile.website} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-full transition-colors">
                                     <Globe className="w-5 h-5" />
                                 </a>
                             )}
@@ -159,7 +159,7 @@ export default function StudentCompanyViewPage() {
                                 </a>
                             )}
                             {profile.linkedin_url && (
-                                <a href={profile.linkedin_url} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-colors">
+                                <a href={profile.linkedin_url} target="_blank" rel="noopener noreferrer" className="p-2 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-full transition-colors">
                                     <Linkedin className="w-5 h-5" />
                                 </a>
                             )}
@@ -177,7 +177,7 @@ export default function StudentCompanyViewPage() {
                     {/* At a Glance */}
                     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
                         <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-6 flex items-center gap-2">
-                            <Rocket className="w-4 h-4 text-blue-600" />
+                            <Rocket className="w-4 h-4 text-secondary" />
                             At a Glance
                         </h3>
 
@@ -223,8 +223,8 @@ export default function StudentCompanyViewPage() {
 
                         <div className="space-y-4">
                             {profile.website && (
-                                <a href={profile.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors group">
-                                    <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                                <a href={profile.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-600 hover:text-primary transition-colors group">
+                                    <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-primary/5 transition-colors">
                                         <Globe className="w-4 h-4" />
                                     </div>
                                     <span className="text-sm font-medium truncate">Website</span>
@@ -233,8 +233,8 @@ export default function StudentCompanyViewPage() {
                             )}
 
                             {profile.public_email && (
-                                <a href={`mailto:${profile.public_email}`} className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors group">
-                                    <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+                                <a href={`mailto:${profile.public_email}`} className="flex items-center gap-3 text-slate-600 hover:text-primary transition-colors group">
+                                    <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-primary/5 transition-colors">
                                         <Mail className="w-4 h-4" />
                                     </div>
                                     <span className="text-sm font-medium truncate">{profile.public_email}</span>
@@ -260,7 +260,7 @@ export default function StudentCompanyViewPage() {
                     {/* About Us */}
                     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="p-2 bg-blue-50 rounded-lg text-blue-600">
+                            <div className="p-2 bg-primary/5 rounded-lg text-primary">
                                 <Building2 className="w-6 h-6" />
                             </div>
                             <h2 className="text-2xl font-bold text-slate-900">About Us</h2>
@@ -323,7 +323,7 @@ export default function StudentCompanyViewPage() {
                     <div className="pt-4">
                         <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                             Open Positions at {profile.company_name}
-                            <span className="bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-0.5 rounded-full">{jobs.length}</span>
+                            <span className="bg-primary/10 text-primary text-xs font-bold px-2.5 py-0.5 rounded-full">{jobs.length}</span>
                         </h3>
 
                         {jobs.length > 0 ? (
@@ -332,11 +332,11 @@ export default function StudentCompanyViewPage() {
                                     <Link
                                         key={job.id}
                                         href={`/dashboard/student/jobs/${job.id}`}
-                                        className="block bg-white border border-slate-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-md transition-all group"
+                                        className="block bg-white border border-slate-200 rounded-xl p-5 hover:border-secondary hover:shadow-md transition-all group"
                                     >
                                         <div className="flex justify-between items-start">
                                             <div>
-                                                <h4 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors text-lg mb-1">{job.title}</h4>
+                                                <h4 className="font-bold text-slate-900 group-hover:text-primary transition-colors text-lg mb-1">{job.title}</h4>
                                                 <div className="flex flex-wrap gap-3 text-sm text-slate-500">
                                                     <span className="flex items-center gap-1">
                                                         <MapPin className="w-3.5 h-3.5" />
@@ -349,7 +349,7 @@ export default function StudentCompanyViewPage() {
                                                     <span>{job.salary_range}</span>
                                                 </div>
                                             </div>
-                                            <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 transition-colors" />
+                                            <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-primary transition-colors" />
                                         </div>
                                     </Link>
                                 ))}

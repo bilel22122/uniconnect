@@ -66,7 +66,7 @@ export default function CompanyInboxPage() {
     if (loading) {
         return (
             <div className="flex h-[calc(100vh-64px)] justify-center items-center">
-                <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                <Loader2 className="w-8 h-8 animate-spin text-primary" />
             </div>
         );
     }
@@ -82,7 +82,7 @@ export default function CompanyInboxPage() {
                     <p className="text-gray-500">
                         Start conversations with candidates from the Candidates page.
                     </p>
-                    <Link href="/dashboard/company/candidates" className="text-blue-600 hover:underline mt-2 inline-block">
+                    <Link href="/dashboard/company/candidates" className="text-primary hover:underline mt-2 inline-block">
                         Go to Candidates
                     </Link>
                 </div>

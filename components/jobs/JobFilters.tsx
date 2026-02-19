@@ -67,7 +67,7 @@ export default function JobFilters({ onFilterChange }: JobFiltersProps) {
                             value={filters.query}
                             onChange={handleChange}
                             placeholder="e.g. Developer, Designer"
-                            className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
+                            className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:bg-white transition-all"
                         />
                     </div>
                 </div>
@@ -98,7 +98,7 @@ export default function JobFilters({ onFilterChange }: JobFiltersProps) {
                             name="jobType"
                             value={filters.jobType}
                             onChange={handleChange}
-                            className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all appearance-none cursor-pointer"
+                            className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:bg-white transition-all appearance-none cursor-pointer"
                         >
                             <option value="">All Types</option>
                             {JOB_TYPES.map(type => (
@@ -122,7 +122,7 @@ export default function JobFilters({ onFilterChange }: JobFiltersProps) {
                                 value={filters.salaryMin}
                                 onChange={handleChange}
                                 placeholder="Min"
-                                className="w-full pl-9 pr-2 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
+                                className="w-full pl-9 pr-2 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:bg-white transition-all"
                             />
                         </div>
                         <div className="relative">
@@ -133,7 +133,7 @@ export default function JobFilters({ onFilterChange }: JobFiltersProps) {
                                 value={filters.salaryMax}
                                 onChange={handleChange}
                                 placeholder="Max"
-                                className="w-full pl-9 pr-2 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all"
+                                className="w-full pl-9 pr-2 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:bg-white transition-all"
                             />
                         </div>
                     </div>

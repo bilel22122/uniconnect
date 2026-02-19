@@ -153,7 +153,7 @@ export default function EditProfilePage() {
     if (loading) {
         return (
             <div className="flex h-96 items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
         );
     }
@@ -180,7 +180,7 @@ export default function EditProfilePage() {
                         <button
                             type="submit"
                             disabled={saving}
-                            className="flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-all shadow-sm disabled:opacity-70"
+                            className="flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-medium hover:bg-primary/90 transition-all shadow-sm disabled:opacity-70"
                         >
                             {saving ? (
                                 <>
@@ -202,7 +202,7 @@ export default function EditProfilePage() {
                     {/* 1. Personal Identity */}
                     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
                         <div className="flex items-center gap-3 mb-6 pb-2 border-b border-slate-100">
-                            <User className="w-6 h-6 text-blue-600" />
+                            <User className="w-6 h-6 text-secondary" />
                             <h2 className="text-xl font-bold text-slate-900">Personal Identity</h2>
                         </div>
 
@@ -223,7 +223,7 @@ export default function EditProfilePage() {
                                     value={profile.full_name}
                                     onChange={handleInputChange}
                                     required
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -233,7 +233,7 @@ export default function EditProfilePage() {
                                     name="date_of_birth"
                                     value={profile.date_of_birth}
                                     onChange={handleInputChange}
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -242,7 +242,7 @@ export default function EditProfilePage() {
                                     name="gender"
                                     value={profile.gender}
                                     onChange={handleInputChange}
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 >
                                     <option value="Prefer not to say">Prefer not to say</option>
                                     <option value="Male">Male</option>
@@ -257,7 +257,7 @@ export default function EditProfilePage() {
                                     name="nationality"
                                     value={profile.nationality}
                                     onChange={handleInputChange}
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                         </div>
@@ -279,7 +279,7 @@ export default function EditProfilePage() {
                                         name="phone"
                                         value={profile.phone}
                                         onChange={handleInputChange}
-                                        className="block w-full pl-10 rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                        className="block w-full pl-10 rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                     />
                                 </div>
                             </div>
@@ -292,7 +292,7 @@ export default function EditProfilePage() {
                                         name="portfolio_url"
                                         value={profile.portfolio_url}
                                         onChange={handleInputChange}
-                                        className="block w-full pl-10 rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                        className="block w-full pl-10 rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                     />
                                 </div>
                             </div>
@@ -304,7 +304,7 @@ export default function EditProfilePage() {
                                     value={profile.address}
                                     onChange={handleInputChange}
                                     placeholder="Street, City, Country"
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -313,7 +313,7 @@ export default function EditProfilePage() {
                                     name="mobility"
                                     value={profile.mobility}
                                     onChange={handleInputChange}
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 >
                                     <option value="Flexible">Flexible / Willing to Relocate</option>
                                     <option value="Local Only">Local Only</option>
@@ -337,7 +337,7 @@ export default function EditProfilePage() {
                                     name="university"
                                     value={profile.university}
                                     onChange={handleInputChange}
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -348,7 +348,7 @@ export default function EditProfilePage() {
                                     value={profile.major}
                                     onChange={handleInputChange}
                                     placeholder="e.g. Computer Science"
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -358,7 +358,7 @@ export default function EditProfilePage() {
                                     name="student_id"
                                     value={profile.student_id}
                                     onChange={handleInputChange}
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -369,7 +369,7 @@ export default function EditProfilePage() {
                                     value={profile.current_year}
                                     onChange={handleInputChange}
                                     placeholder="e.g. 3rd Year / Senior"
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -379,7 +379,7 @@ export default function EditProfilePage() {
                                     name="expected_graduation"
                                     value={profile.expected_graduation}
                                     onChange={handleInputChange}
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                         </div>
@@ -401,7 +401,7 @@ export default function EditProfilePage() {
                                         value={profile.skills}
                                         onChange={handleInputChange}
                                         placeholder="e.g. React, SQL, Python"
-                                        className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                        className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                     />
                                 </div>
                                 <div>
@@ -412,7 +412,7 @@ export default function EditProfilePage() {
                                         value={profile.soft_skills}
                                         onChange={handleInputChange}
                                         placeholder="e.g. Leadership, Communication"
-                                        className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                        className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                     />
                                 </div>
                             </div>
@@ -425,7 +425,7 @@ export default function EditProfilePage() {
                                     value={profile.part_time_jobs}
                                     onChange={handleInputChange}
                                     placeholder="Describe your previous work experience..."
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none resize-y"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none resize-y"
                                 />
                             </div>
 
@@ -437,7 +437,7 @@ export default function EditProfilePage() {
                                     value={profile.freelance_projects}
                                     onChange={handleInputChange}
                                     placeholder="Detail any freelance or personal projects..."
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none resize-y"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none resize-y"
                                 />
                             </div>
                         </div>
@@ -457,7 +457,7 @@ export default function EditProfilePage() {
                                     name="certifications"
                                     value={profile.certifications}
                                     onChange={handleInputChange}
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -468,7 +468,7 @@ export default function EditProfilePage() {
                                     value={profile.references_list}
                                     onChange={handleInputChange}
                                     placeholder="Name & Contact of references"
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -478,7 +478,7 @@ export default function EditProfilePage() {
                                     name="clubs"
                                     value={profile.clubs}
                                     onChange={handleInputChange}
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -488,7 +488,7 @@ export default function EditProfilePage() {
                                     name="sports"
                                     value={profile.sports}
                                     onChange={handleInputChange}
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                         </div>

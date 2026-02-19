@@ -95,7 +95,7 @@ export default function NotificationsPage() {
     if (loading) {
         return (
             <div className="flex justify-center items-center h-96">
-                <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                <Loader2 className="w-8 h-8 animate-spin text-primary" />
             </div>
         );
     }
@@ -112,7 +112,7 @@ export default function NotificationsPage() {
                 {notifications.some(n => !n.is_read) && (
                     <button
                         onClick={markAllAsRead}
-                        className="text-sm font-medium text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                        className="text-sm font-medium text-secondary hover:text-secondary/80 flex items-center gap-1"
                     >
                         <Check className="w-4 h-4" />
                         Mark all as read
@@ -138,20 +138,20 @@ export default function NotificationsPage() {
                             className={`
                         relative group flex items-start gap-4 p-5 rounded-xl border transition-all cursor-pointer
                         ${notif.is_read
-                                    ? 'bg-white border-slate-200 hover:border-blue-200'
-                                    : 'bg-blue-50/50 border-blue-100 hover:border-blue-300'
+                                    ? 'bg-white border-slate-200 hover:border-secondary/50'
+                                    : 'bg-primary/5 border-primary/10 hover:border-secondary'
                                 }
                     `}
                         >
                             {/* Unread Indicator */}
                             {!notif.is_read && (
-                                <div className="absolute top-6 right-6 w-2.5 h-2.5 bg-blue-600 rounded-full shadow-sm ring-4 ring-blue-50/50"></div>
+                                <div className="absolute top-6 right-6 w-2.5 h-2.5 bg-secondary rounded-full shadow-sm ring-4 ring-secondary/20"></div>
                             )}
 
                             {/* Icon */}
                             <div className={`
                         p-3 rounded-full flex-shrink-0
-                        ${notif.is_read ? 'bg-slate-100 text-slate-500' : 'bg-blue-100 text-blue-600'}
+                        ${notif.is_read ? 'bg-slate-100 text-slate-500' : 'bg-primary/10 text-primary'}
                     `}>
                                 <Inbox className="w-5 h-5" />
                             </div>
@@ -173,7 +173,7 @@ export default function NotificationsPage() {
                             </div>
 
                             {/* Chevron (subtle) */}
-                            <div className="self-center text-slate-300 group-hover:text-blue-400 transition-colors">
+                            <div className="self-center text-slate-300 group-hover:text-secondary transition-colors">
                                 <ChevronRight className="w-5 h-5" />
                             </div>
                         </div>

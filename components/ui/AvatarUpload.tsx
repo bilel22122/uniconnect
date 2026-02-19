@@ -23,10 +23,14 @@ export default function AvatarUpload({ url, onUpload, size = 150 }: AvatarUpload
                 throw new Error('You must select an image to upload.');
             }
 
+            const { data: { user } } = await supabase.auth.getUser();
+            if (!user) {
+                throw new Error('User not authenticatd.');
+            }
+
             const file = event.target.files[0];
-            const fileExt = file.name.split('.').pop();
-            const fileName = `${Math.random().toString(36).substring(2, 15)}-${Date.now()}.${fileExt}`;
-            const filePath = `${fileName}`;
+            // Fix: Unique path per user to prevent overwriting others' avatars
+            const filePath = `${user.id}/${Date.now()}_${file.name}`;
 
             const { error: uploadError } = await supabase.storage
                 .from('avatars')
@@ -88,7 +92,7 @@ export default function AvatarUpload({ url, onUpload, size = 150 }: AvatarUpload
             cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-sm
             ${uploading
                             ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
-                            : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-blue-300 hover:text-blue-600'
+                            : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-secondary hover:text-primary'
                         }
           `}
                     htmlFor="single"

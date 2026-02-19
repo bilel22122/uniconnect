@@ -69,7 +69,7 @@ export default function StudentResumePage() {
     if (loading) {
         return (
             <div className="flex h-96 items-center justify-center">
-                <div className="h-8 w-8 animate-spin rounded-full border-4 border-blue-600 border-t-transparent"></div>
+                <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
             </div>
         );
     }
@@ -80,7 +80,7 @@ export default function StudentResumePage() {
                 <h2 className="text-xl font-bold text-slate-700">Student not found</h2>
                 <button
                     onClick={() => router.back()}
-                    className="mt-4 text-blue-600 hover:underline"
+                    className="mt-4 text-primary hover:underline"
                 >
                     Go Back
                 </button>
@@ -137,7 +137,7 @@ export default function StudentResumePage() {
                             href={profile.portfolio_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-sm"
+                            className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-sm"
                         >
                             <ExternalLink className="w-4 h-4" />
                             View Portfolio
@@ -152,14 +152,14 @@ export default function StudentResumePage() {
                 <div className="space-y-6">
                     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
                         <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                            <User className="w-5 h-5 text-blue-600" />
+                            <User className="w-5 h-5 text-secondary" />
                             Contact Info
                         </h3>
                         <div className="space-y-3 text-sm">
                             {profile.email && (
                                 <div className="flex items-center gap-3 text-slate-600">
                                     <Mail className="w-4 h-4 text-slate-400" />
-                                    <a href={`mailto:${profile.email}`} className="hover:text-blue-600 transition-colors">{profile.email}</a>
+                                    <a href={`mailto:${profile.email}`} className="hover:text-primary transition-colors">{profile.email}</a>
                                 </div>
                             )}
                             {profile.phone && (
@@ -179,7 +179,7 @@ export default function StudentResumePage() {
 
                     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
                         <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                            <Globe className="w-5 h-5 text-blue-600" />
+                            <Globe className="w-5 h-5 text-secondary" />
                             Details
                         </h3>
                         <div className="space-y-3 text-sm text-slate-600">
@@ -205,7 +205,7 @@ export default function StudentResumePage() {
                     {/* Academic Info */}
                     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
                         <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                            <School className="w-5 h-5 text-blue-600" />
+                            <School className="w-5 h-5 text-secondary" />
                             Education
                         </h3>
                         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
@@ -217,7 +217,7 @@ export default function StudentResumePage() {
                                 </div>
                             )}
                         </div>
-                        <div className="text-blue-600 font-medium">{profile.major}</div>
+                        <div className="text-primary font-medium">{profile.major}</div>
                     </div>
 
                     {/* Experience */}
@@ -257,7 +257,7 @@ export default function StudentResumePage() {
                                     <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">Technical Skills</h4>
                                     <div className="flex flex-wrap gap-2">
                                         {profile.skills.split(',').map((skill, i) => (
-                                            <span key={i} className="inline-flex items-center px-3 py-1 rounded-lg bg-blue-50 text-blue-700 text-sm font-medium">
+                                            <span key={i} className="inline-flex items-center px-3 py-1 rounded-lg bg-primary/5 text-primary text-sm font-medium">
                                                 {skill.trim()}
                                             </span>
                                         ))}

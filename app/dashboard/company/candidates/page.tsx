@@ -190,7 +190,7 @@ export default function CompanyCandidatesPage() {
 
     if (loading) return (
         <div className="flex justify-center items-center h-96">
-            <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
         </div>
     );
 
@@ -227,7 +227,7 @@ export default function CompanyCandidatesPage() {
                                         {app.student.is_verified && <VerifiedBadge size={20} className="ml-1.5" />}
                                     </h3>
                                     <div className="text-slate-600 font-medium mb-1">
-                                        Applied for <span className="text-blue-600">{app.job?.title}</span>
+                                        Applied for <span className="text-secondary">{app.job?.title}</span>
                                     </div>
 
                                     <div className="flex flex-wrap gap-4 text-sm text-slate-500 mt-2">
@@ -253,7 +253,7 @@ export default function CompanyCandidatesPage() {
                                     {/* Portfolio Link */}
                                     {app.student.portfolio_url && (
                                         <div className="mt-3">
-                                            <a href={app.student.portfolio_url} target="_blank" className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 font-medium">
+                                            <a href={app.student.portfolio_url} target="_blank" className="inline-flex items-center gap-1 text-sm text-primary hover:text-primary/80 font-medium">
                                                 <ExternalLink className="w-3.5 h-3.5" />
                                                 View Portfolio / Profile
                                             </a>
@@ -288,7 +288,7 @@ export default function CompanyCandidatesPage() {
                                                 </div>
                                                 <button
                                                     onClick={() => handleMessage(app.student.id)}
-                                                    className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-blue-200 text-blue-600 font-bold hover:bg-blue-50 transition-colors"
+                                                    className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-primary text-primary font-bold hover:bg-primary/5 transition-colors"
                                                 >
                                                     <MessageSquare className="w-5 h-5" />
                                                     Message
@@ -312,7 +312,7 @@ export default function CompanyCandidatesPage() {
                                                 <button
                                                     onClick={() => updateStatus(app.id, app.student.id, app.job?.title || 'Job', 'Accepted')}
                                                     disabled={updatingId === app.id}
-                                                    className="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-2 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all shadow-md hover:shadow-lg disabled:opacity-50"
+                                                    className="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-2 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 transition-all shadow-md hover:shadow-lg disabled:opacity-50"
                                                 >
                                                     {updatingId === app.id ? (
                                                         <Loader2 className="w-5 h-5 animate-spin" />

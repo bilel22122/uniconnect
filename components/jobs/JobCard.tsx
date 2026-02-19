@@ -29,12 +29,12 @@ interface JobCardProps {
 
 export default function JobCard({ job, hrefPrefix = "/dashboard/student/jobs" }: JobCardProps) {
     return (
-        <div className="bg-white rounded-xl p-6 border border-slate-200 hover:shadow-md hover:border-blue-200 transition-all group flex flex-col h-full">
+        <div className="bg-white rounded-xl p-6 border border-slate-200 hover:shadow-md hover:border-secondary/20 transition-all group flex flex-col h-full">
 
             {/* Card Header */}
             <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 font-bold text-xl flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center text-primary font-bold text-xl flex-shrink-0">
                         {job.company?.photo_url ? (
                             <img src={job.company.photo_url} alt={job.company.company_name} className="w-full h-full object-cover rounded-lg" />
                         ) : (
@@ -42,7 +42,7 @@ export default function JobCard({ job, hrefPrefix = "/dashboard/student/jobs" }:
                         )}
                     </div>
                     <div>
-                        <h3 className="font-bold text-slate-900 line-clamp-1 group-hover:text-blue-600 transition-colors">
+                        <h3 className="font-bold text-slate-900 line-clamp-1 group-hover:text-secondary transition-colors">
                             <Link href={`${hrefPrefix}/${job.id}`}>
                                 {job.title}
                             </Link>
@@ -78,7 +78,7 @@ export default function JobCard({ job, hrefPrefix = "/dashboard/student/jobs" }:
 
                 <Link
                     href={`${hrefPrefix}/${job.id}`}
-                    className="text-sm font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1"
+                    className="text-sm font-semibold text-primary hover:text-primary/80 flex items-center gap-1"
                 >
                     View Details
                     <ArrowRight className="w-4 h-4" />

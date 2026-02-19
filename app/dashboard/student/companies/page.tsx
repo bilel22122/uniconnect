@@ -76,14 +76,14 @@ export default function StudentCompaniesPage() {
                     placeholder="Search by name or industry..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="block w-full pl-11 pr-4 py-4 rounded-xl border border-slate-200 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-base outline-none transition-all hover:border-blue-300"
+                    className="block w-full pl-11 pr-4 py-4 rounded-xl border border-slate-200 shadow-sm focus:border-secondary focus:ring-1 focus:ring-secondary text-base outline-none transition-all hover:border-secondary/50"
                 />
             </div>
 
             {/* Grid */}
             {loading ? (
                 <div className="flex justify-center py-20">
-                    <Loader2 className="h-10 w-10 animate-spin text-blue-600" />
+                    <Loader2 className="h-10 w-10 animate-spin text-primary" />
                 </div>
             ) : filteredCompanies.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

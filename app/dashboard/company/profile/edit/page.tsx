@@ -146,7 +146,7 @@ export default function CompanyProfileEditPage() {
     if (loading) {
         return (
             <div className="flex h-96 items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
         );
     }
@@ -175,7 +175,7 @@ export default function CompanyProfileEditPage() {
                         form="profile-form"
                         type="submit"
                         disabled={saving}
-                        className="flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                        className="flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-lg font-bold hover:bg-primary/90 transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                         {saving ? (
                             <>
@@ -197,7 +197,7 @@ export default function CompanyProfileEditPage() {
                 {/* Card 1: Brand Identity */}
                 <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
                     <div className="flex items-center gap-3 mb-6 pb-2 border-b border-slate-100">
-                        <Rocket className="w-6 h-6 text-blue-600" />
+                        <Rocket className="w-6 h-6 text-secondary" />
                         <h2 className="text-xl font-bold text-slate-900">Brand Identity</h2>
                     </div>
 
@@ -211,7 +211,7 @@ export default function CompanyProfileEditPage() {
                                     value={formData.company_name}
                                     onChange={handleInputChange}
                                     required
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -222,7 +222,7 @@ export default function CompanyProfileEditPage() {
                                     value={formData.tagline}
                                     onChange={handleInputChange}
                                     placeholder="Innovating for a better tomorrow"
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                         </div>
@@ -250,7 +250,7 @@ export default function CompanyProfileEditPage() {
                                     value={formData.industry}
                                     onChange={handleInputChange}
                                     placeholder="e.g. Fintech"
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -259,7 +259,7 @@ export default function CompanyProfileEditPage() {
                                     name="company_size"
                                     value={formData.company_size}
                                     onChange={handleInputChange}
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 >
                                     <option value="">Select Size</option>
                                     <option value="1-10">1-10 employees</option>
@@ -278,7 +278,7 @@ export default function CompanyProfileEditPage() {
                                     value={formData.founded_year}
                                     onChange={handleInputChange}
                                     placeholder="e.g. 2015"
-                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                             <div>
@@ -291,7 +291,7 @@ export default function CompanyProfileEditPage() {
                                         value={formData.website}
                                         onChange={handleInputChange}
                                         placeholder="https://company.com"
-                                        className="block w-full pl-10 rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                        className="block w-full pl-10 rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                     />
                                 </div>
                             </div>
@@ -315,7 +315,7 @@ export default function CompanyProfileEditPage() {
                                 value={formData.bio}
                                 onChange={handleInputChange}
                                 placeholder="General overview..."
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none resize-y"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none resize-y"
                             />
                         </div>
                         <div>
@@ -326,7 +326,7 @@ export default function CompanyProfileEditPage() {
                                 value={formData.history_milestones}
                                 onChange={handleInputChange}
                                 placeholder="Founded in a garage... Raised Series A in 2024..."
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none resize-y"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none resize-y"
                             />
                         </div>
                         <div>
@@ -337,7 +337,7 @@ export default function CompanyProfileEditPage() {
                                 value={formData.markets_served}
                                 onChange={handleInputChange}
                                 placeholder="e.g. North America, Europe, Asia"
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
                     </div>
@@ -357,7 +357,7 @@ export default function CompanyProfileEditPage() {
                             value={formData.products_services}
                             onChange={handleInputChange}
                             placeholder="Our flagship product is..."
-                            className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none resize-y"
+                            className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none resize-y"
                         />
                     </div>
                 </div>
@@ -376,7 +376,7 @@ export default function CompanyProfileEditPage() {
                             value={formData.leadership_info}
                             onChange={handleInputChange}
                             placeholder="Jane Doe (CEO)... John Smith (CTO)..."
-                            className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none resize-y"
+                            className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none resize-y"
                         />
                     </div>
                 </div>
@@ -398,7 +398,7 @@ export default function CompanyProfileEditPage() {
                                     name="headquarters"
                                     value={formData.headquarters}
                                     onChange={handleInputChange}
-                                    className="block w-full pl-10 rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                    className="block w-full pl-10 rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                                 />
                             </div>
                         </div>
@@ -409,7 +409,7 @@ export default function CompanyProfileEditPage() {
                                 name="contact_phone"
                                 value={formData.contact_phone}
                                 onChange={handleInputChange}
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
                         <div>
@@ -419,7 +419,7 @@ export default function CompanyProfileEditPage() {
                                 name="public_email"
                                 value={formData.public_email}
                                 onChange={handleInputChange}
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
                         <div>
@@ -429,7 +429,7 @@ export default function CompanyProfileEditPage() {
                                 name="linkedin_url"
                                 value={formData.linkedin_url}
                                 onChange={handleInputChange}
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
                         <div className="md:col-span-2">
@@ -439,7 +439,7 @@ export default function CompanyProfileEditPage() {
                                 name="twitter_url"
                                 value={formData.twitter_url}
                                 onChange={handleInputChange}
-                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-blue-500 focus:outline-none"
+                                className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 focus:border-secondary focus:outline-none"
                             />
                         </div>
                     </div>
